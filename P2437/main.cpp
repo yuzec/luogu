@@ -13,7 +13,7 @@ string add(string x, string y) {
             x = '0' + x;
     int jw = 0;
     for (int i=max(lenx, leny)-1; i>=0; --i) {
-        x[i] += (y[i] - '0') +jw;
+        x[i] += (y[i] - '0') + jw;
         jw = (x[i] - '0') / 10;
         x[i] = (x[i] - '0') % 10 + '0';
     }
@@ -23,12 +23,12 @@ string add(string x, string y) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    string a[n+1]={"1", "1"};
-    for (int i=2; i<=n; ++i)
-        a[i] = add(a[i-1],  a[i-2]);
-    a[0] = "0";
+    int m, n;
+    cin >> m >> n;
+    string a[n+1];
+    a[m] = a[m+1] = "1";
+    for (int i=m+2; i<=n; ++i)
+        a[i] = add(a[i-1], a[i-2]);
     cout << a[n] << endl;
     return 0;
 }
